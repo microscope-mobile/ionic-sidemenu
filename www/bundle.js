@@ -81449,14 +81449,14 @@ function Router($stateProvider,$urlRouterProvider) {
 	.state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: '/menu/templates/menu.html',
+    templateUrl: '/menu/controllers/menu.html',
     controller: 'MenuCtrl'
     })
   .state('app.home', {
     url: '/home',
     views: {
        'menuContent': {
-          templateUrl: '/home/templates/home.html',
+          templateUrl: '/home/controllers/home.html',
            controller: 'HomeCtrl'
         }
       }
@@ -81465,7 +81465,7 @@ function Router($stateProvider,$urlRouterProvider) {
       url: '/about',
       views: {
        'menuContent': {
-          templateUrl: '/about/templates/about.html',
+          templateUrl: '/about/controllers/about.html',
           controller: 'AboutCtrl'
         }
       }
