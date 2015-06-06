@@ -1,8 +1,7 @@
 'use strict';
 
-// MenuCtrl class
+// Menu controller class
 function MenuCtrl () {
-	this.title = 'menu';
 
 }
 

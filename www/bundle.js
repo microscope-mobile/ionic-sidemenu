@@ -12,18 +12,28 @@ var Router  = require('./router');
 var startUp = require('./startUp');
 
 // Application modules
-require('./menu/menu');
-require('./home/home');
-require('./about/about');
-
-
+require('./components/menu/menu');
+require('./components/home/home');
+require('./components/about/about');
 
 // application definition
-var app = angular.module('app', ['ionic','app.menu','app.home','app.about']);
+var app = angular.module('app', [
+	'ionic',
+	'app.menu',
+	'app.home',
+	'app.about'
+]);
 
-app.config(['$stateProvider','$urlRouterProvider', Router]);
+// application routing configuration
+app.config([
+	'$stateProvider',
+	'$urlRouterProvider', 
+	Router
+]);
+
+// application startUp
 app.run(startUp);
-},{"./about/about":9,"./home/home":12,"./menu/menu":14,"./router":15,"./startUp":16,"angular":7,"angular-animate":3,"angular-sanitize":5,"angular-ui-router":6,"ionic-framework":8}],2:[function(require,module,exports){
+},{"./components/about/about":9,"./components/home/home":12,"./components/menu/menu":14,"./router":15,"./startUp":16,"angular":7,"angular-animate":3,"angular-sanitize":5,"angular-ui-router":6,"ionic-framework":8}],2:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.0
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -81372,32 +81382,26 @@ IonicModule
 var angular = require('angular');
 var AboutCtrl  = require('./controllers/aboutCtrl');
 
-
 // Home sub-module definition
 var about = angular.module('app.about', []);
 about.controller('AboutCtrl', [AboutCtrl]);
-
 
 module.exports = about;
 },{"./controllers/aboutCtrl":10,"angular":7}],10:[function(require,module,exports){
 'use strict';
 
-// HomeCtrl class
+// About controller class
 function AboutCtrl () {
-	this.title = 'about';
-
-	this.content = 'another controller';
+	this.content = 'This is about page';
 }
 
 module.exports = AboutCtrl;
 },{}],11:[function(require,module,exports){
 'use strict';
 
-// HomeCtrl class
+// Home controller class
 function HomeCtrl () {
-	this.title = 'home';
-
-	this.content = 'HomeCtrl';
+	this.content = 'This is home page';
 }
 
 module.exports = HomeCtrl;
@@ -81408,19 +81412,16 @@ module.exports = HomeCtrl;
 var angular = require('angular');
 var HomeCtrl  = require('./controllers/homeCtrl');
 
-
 // Home sub-module definition
 var home = angular.module('app.home', []);
 home.controller('HomeCtrl', [HomeCtrl]);
-
 
 module.exports = home;
 },{"./controllers/homeCtrl":11,"angular":7}],13:[function(require,module,exports){
 'use strict';
 
-// MenuCtrl class
+// Menu controller class
 function MenuCtrl () {
-	this.title = 'menu';
 
 }
 
@@ -81432,50 +81433,56 @@ module.exports = MenuCtrl;
 var angular = require('angular');
 var MenuCtrl  = require('./controllers/menuCtrl');
 
-
 // Home sub-module definition
 var menu = angular.module('app.menu', []);
 menu.controller('MenuCtrl', [MenuCtrl]);
-
 
 module.exports = menu;
 },{"./controllers/menuCtrl":13,"angular":7}],15:[function(require,module,exports){
 'use strict';
 
-// Router class
-function Router($stateProvider,$urlRouterProvider) {
+/**
+ * Router class
+ */
+function Router($stateProvider, $urlRouterProvider) {
 
-	$stateProvider
-	.state('app', {
+  $stateProvider
+  
+  .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: '/menu/controllers/menu.html',
-    controller: 'MenuCtrl'
-    })
+    templateUrl: '/components/menu/controllers/menu.html',
+    controller: 'MenuCtrl as vm'
+  })
+  
   .state('app.home', {
     url: '/home',
     views: {
-       'menuContent': {
-          templateUrl: '/home/controllers/home.html',
-           controller: 'HomeCtrl'
-        }
+      'menuContent': {
+        templateUrl: '/components/home/controllers/home.html',
+        controller: 'HomeCtrl as vm'
       }
-    })
-    .state('app.about', {
-      url: '/about',
+    }
+  })
+  
+  .state('app.about', {
+    url: '/about',
       views: {
-       'menuContent': {
-          templateUrl: '/about/controllers/about.html',
-          controller: 'AboutCtrl'
-        }
+        'menuContent': {
+          templateUrl: '/components/about/controllers/about.html',
+          controller: 'AboutCtrl as vm'
       }
-    });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise("/app/home");// Important!
+    }
+  });
+  
+  $urlRouterProvider.otherwise("/app/home");
 }
 
 module.exports = Router;
 },{}],16:[function(require,module,exports){
+/**
+ * angular startUp 
+ */
 function startUp($ionicPlatform) {
   $ionicPlatform.ready(function () {
     if (window.cordova && window.cordova.plugins.Keyboard) {

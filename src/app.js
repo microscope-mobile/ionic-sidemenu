@@ -11,14 +11,24 @@ var Router  = require('./router');
 var startUp = require('./startUp');
 
 // Application modules
-require('./menu/menu');
-require('./home/home');
-require('./about/about');
-
-
+require('./components/menu/menu');
+require('./components/home/home');
+require('./components/about/about');
 
 // application definition
-var app = angular.module('app', ['ionic','app.menu','app.home','app.about']);
+var app = angular.module('app', [
+	'ionic',
+	'app.menu',
+	'app.home',
+	'app.about'
+]);
 
-app.config(['$stateProvider','$urlRouterProvider', Router]);
+// application routing configuration
+app.config([
+	'$stateProvider',
+	'$urlRouterProvider', 
+	Router
+]);
+
+// application startUp
 app.run(startUp);

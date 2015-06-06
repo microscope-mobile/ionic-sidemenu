@@ -1,35 +1,40 @@
 'use strict';
 
-// Router class
-function Router($stateProvider,$urlRouterProvider) {
+/**
+ * Router class
+ */
+function Router($stateProvider, $urlRouterProvider) {
 
-	$stateProvider
-	.state('app', {
+  $stateProvider
+  
+  .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: '/menu/controllers/menu.html',
-    controller: 'MenuCtrl'
-    })
+    templateUrl: '/components/menu/controllers/menu.html',
+    controller: 'MenuCtrl as vm'
+  })
+  
   .state('app.home', {
     url: '/home',
     views: {
-       'menuContent': {
-          templateUrl: '/home/controllers/home.html',
-           controller: 'HomeCtrl'
-        }
+      'menuContent': {
+        templateUrl: '/components/home/controllers/home.html',
+        controller: 'HomeCtrl as vm'
       }
-    })
-    .state('app.about', {
-      url: '/about',
+    }
+  })
+  
+  .state('app.about', {
+    url: '/about',
       views: {
-       'menuContent': {
-          templateUrl: '/about/controllers/about.html',
-          controller: 'AboutCtrl'
-        }
+        'menuContent': {
+          templateUrl: '/components/about/controllers/about.html',
+          controller: 'AboutCtrl as vm'
       }
-    });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise("/app/home");// Important!
+    }
+  });
+  
+  $urlRouterProvider.otherwise("/app/home");
 }
 
 module.exports = Router;
