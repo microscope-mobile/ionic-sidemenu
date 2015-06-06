@@ -10,7 +10,7 @@ function Router($stateProvider, $urlRouterProvider) {
   .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: '/components/menu/controllers/menu.html',
+    templateUrl: 'components/menu/controllers/menu.html',
     controller: 'MenuCtrl as vm'
   })
   
@@ -18,7 +18,7 @@ function Router($stateProvider, $urlRouterProvider) {
     url: '/home',
     views: {
       'menuContent': {
-        templateUrl: '/components/home/controllers/home.html',
+        templateUrl: 'components/home/controllers/home.html',
         controller: 'HomeCtrl as vm'
       }
     }
@@ -28,7 +28,7 @@ function Router($stateProvider, $urlRouterProvider) {
     url: '/about',
       views: {
         'menuContent': {
-          templateUrl: '/components/about/controllers/about.html',
+          templateUrl: 'components/about/controllers/about.html',
           controller: 'AboutCtrl as vm'
       }
     }
