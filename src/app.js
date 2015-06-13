@@ -1,4 +1,6 @@
-	// imports
+'use strict';
+
+// imports
 var angular = require('angular');
 require('angular-sanitize');
 require('ionic-framework');

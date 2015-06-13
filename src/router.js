@@ -34,7 +34,7 @@ function Router($stateProvider, $urlRouterProvider) {
     }
   });
   
-  $urlRouterProvider.otherwise("/app/home");
+  $urlRouterProvider.otherwise('/app/home');
 }
 
 module.exports = Router;
