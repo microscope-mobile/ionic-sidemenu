@@ -1,4 +1,4 @@
-# microscope-mobile-sidemenu
+# ionic-sidemenu
  browserify ionic project / npm workflow sidemenu template
 
  Requirements
