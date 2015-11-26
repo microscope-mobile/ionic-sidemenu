@@ -2,12 +2,17 @@
   "name": "ionic-sidemenu",
   "version": "1.0.0",
   "description": "cordova ionic project",
+  "scripts": {
+    "start": "http-server ./www -s",
+    "test": "gulp test"
+  },
   "dependencies": {
     "angular": "^1.4.0",
     "angular-animate": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-ui-router": "^0.2.15",
     "browserify-shim": "^3.8.7",
+    "http-server": "^0.8.5",
     "install": "^0.1.8",
     "ionic-npm": "*",
     "ng-cordova": "^0.1.15-alpha"
