@@ -2,10 +2,11 @@
 
 // imports
 var angular = require('angular');
-require('angular-sanitize');
-require('ionic-npm/js/ionic.bundle.min');
+require('ionic-npm/js/ionic');
+require('ionic-npm/js/ionic-angular');
 require('angular-ui-router');
 require('angular-animate');
+require('angular-sanitize');
 //require('ng-cordova');
 
 // Application routing and startup
@@ -15,14 +16,12 @@ var startUp = require('./startUp');
 // Application modules
 require('./components/menu/menu');
 require('./components/home/home');
-require('./components/about/about');
 
 // application definition
 var app = angular.module('app', [
 	'ionic',
 	'app.menu',
-	'app.home',
-	'app.about'
+	'app.home'
 ]);
 
 // application routing configuration
@@ -33,4 +32,4 @@ app.config([
 ]);
 
 // application startUp
-app.run(startUp);
+app.run(['$ionicPlatform', startUp]);

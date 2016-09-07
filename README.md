@@ -1,10 +1,7 @@
-# ionic-sidemenu
+microscope mobile ionic-sidemenu
+================================
 
- browserify ionic project / npm workflow sidemenu template
-
-![microscopejs](https://avatars0.githubusercontent.com/u/13710913?v=3&s=200)
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/microscope-mobile/ionic-sidemenu)
+microscope mobile starter kit with ionic sidemenu template
 
 Requirements
 ------------
@@ -14,57 +11,110 @@ Requirements
 * nodejs
 * ionic CLI (optional)
 * cordova CLI (optional)
-
-Node.js installation
---------------------
-
-#### Install on OSX
-
-Using homebrew:
-
-	brew install node
-
-#### Install on Linux (Ubuntu/Mint)
-
-	sudo apt-get install python-software-properties python g++ make
-	sudo add-apt-repository ppa:chris-lea/node.js
-	sudo apt-get update
-	sudo apt-get install nodejs
-
-#### Install on Windows
-
-[Download Node.js MSI](http://nodejs.org/download/)
+* protractor
+* mocha
 
 Installation
 ------------
 
-Install dependencies:
+Install node.js:
+
+[Download Node.js](http://nodejs.org/download/)
+
+Install project dependencies:
 
 	npm install
 	
-Install gulp:
+Install gulp (task runner):
 
 	npm install gulp -g
 	
-Install ionic CLI (optional):
+Install ionic CLI:
 
 	npm install ionic -g
 	
-Install cordova CLI (optional):
+Install cordova CLI:
 
 	npm install cordova -g
 
+Install selenium-standalone & protractor (test framework):
+
+	npm install protractor -g
+
+Update webdrivers:
+
+	webdriver-manager update
+
+install android platform:
+
+	ionic platform add android
+
+install android ios:
+
+	ionic platform add ios
+
+install mocha (test runner):
+
+	npm install mocha -g
+
 Commands
 --------
-	
-build:
 
-	gulp build
-	
-run project:
+Run web application:
 
-	gulp serve
-	
-run project with ionic CLI:
+	npm start
 
-	ionic serve
+Run web application in development mode:
+
+	npm run serve
+
+Run end to end tests:
+
+	npm run test
+
+note: to enable testing on mobile device (IOS / Android) you can use [Appium](https://github.com/appium/appium) with protractor.
+Check out documentation for protractor [mobile setup](https://github.com/angular/protractor/blob/master/docs/mobile-setup.md).
+
+Run source code validation:
+
+	npm run lint
+
+Build web application:
+
+	npm run build
+
+Build android application:
+
+	npm run build:android
+
+Build ios application:
+
+	npm run build:ios
+
+Release web application:
+
+	npm run release
+
+Release android application:
+
+	npm run release:android
+
+Release ios application:
+
+	npm run release:ios
+
+Run on android device:
+
+	npm run android
+
+Run on IOS device:
+
+	npm run ios    
+
+Run on android emulator:
+
+	npm run emulate:android
+
+Run on ios emulator:
+
+	npm run emulate:ios
